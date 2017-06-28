@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:customer.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>5</load-on-startup><!--如果该选项设置了值，则在容器启动的时候就加载，如果未指定该选项，则在调用的时候再加载-->
+        <!--未指定某个spring配置文件，则“约定”为WEB-INF下的dispatcher-servlet,也可用<init-param>来指定自己自定义的位置-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>
