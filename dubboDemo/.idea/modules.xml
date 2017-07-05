@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dobble-redis-demo.iml" filepath="$PROJECT_DIR$/dobble-redis-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-common-core/dubbo-common-core.iml" filepath="$PROJECT_DIR$/dubbo-common-core/dubbo-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-commons-core.iml" filepath="$PROJECT_DIR$/dubbo-commons-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-demo-core/dubbo-demo-core.iml" filepath="$PROJECT_DIR$/dubbo-demo-core/dubbo-demo-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-demo-service/dubbo-demo-service.iml" filepath="$PROJECT_DIR$/dubbo-demo-service/dubbo-demo-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-demo-web/dubbo-demo-web.iml" filepath="$PROJECT_DIR$/dubbo-demo-web/dubbo-demo-web.iml" />
+    </modules>
+  </component>
+</project>

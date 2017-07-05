@@ -5,4 +5,5 @@ package com.liang.service;
  */
 public interface ArticleService  {
     public String get();
+    public void set();
 }

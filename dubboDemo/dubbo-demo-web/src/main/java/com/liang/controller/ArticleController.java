@@ -21,8 +21,8 @@ public class ArticleController {
     @RequestMapping(value = "/article/info")
     String get(Model model){
         LOGGER.info("jjjjj");
-        String hello = articleService.get();
-        model.addAttribute("info",hello);
+        articleService.set();
+        model.addAttribute("info","success");
         return "/info";
     }
 }
