@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by setup on 2017/6/22.
@@ -18,9 +19,9 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/article/info")
-    String get(Model model){
-        LOGGER.info("jjjjj");
+    @RequestMapping(value = "/article")
+    String set(Model model){
+        LOGGER.info(" write start ");
         articleService.set();
         model.addAttribute("info","success");
         return "/info";

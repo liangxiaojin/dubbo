@@ -59,12 +59,12 @@ public class JedisUtil {
         stringRedisTemplate.opsForHash().putAll(key,map);
     }
 
-//    public List mapGetValueByHk(String k){
-//        return stringRedisTemplate.opsForHash().values(k);
-//    }
-//    public Map<Object, Object> mapGetEntriesByHk(String k){
-//        return stringRedisTemplate.opsForHash().entries(k);
-//    }
+    public List mapGetValueByHk(String k){
+        return stringRedisTemplate.opsForHash().values(k);
+    }
+    public Map<Object, Object> mapGetEntriesByHk(String k){
+        return stringRedisTemplate.opsForHash().entries(k);
+    }
 
 
     /**

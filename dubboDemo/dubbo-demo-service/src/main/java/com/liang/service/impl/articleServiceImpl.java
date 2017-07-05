@@ -19,7 +19,7 @@ public class articleServiceImpl implements ArticleService {
     public void set(){
         System.out.println("============");
         for(int i=0;i<10;i++){
-            jedisUtil.valueSet("key"+i,"value"+i);
+            jedisUtil.valueSet("keykeykeykey"+i,"valuevalue"+i);
         }
     }
 }

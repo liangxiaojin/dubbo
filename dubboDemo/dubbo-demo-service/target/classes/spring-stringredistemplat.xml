@@ -16,7 +16,6 @@
                   value="${redis.pool.maxIdle}"/>
         <property name="testOnBorrow" value="${redis.pool.testOnBorrow}"/>
     </bean>
-
     <!--数据库配置-->
     <bean id="jedisConnectionFactory"
             class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
@@ -34,18 +33,18 @@
         <property name="sentinels">
             <set>
                 <bean class="org.springframework.data.redis.connection.RedisNode">
-
-                    <constructor-arg name="host"
-                                     value="${sentinel.ip}"></constructor-arg>
-                    <constructor-arg name="port"
-                                     value="${sentinel.port}"></constructor-arg>
-                </bean>
-                <bean class="org.springframework.data.redis.connection.RedisNode">
                     <constructor-arg name="host"
                                      value="${sentine2.ip}"></constructor-arg>
                     <constructor-arg name="port"
                                      value="${sentine2.port}"></constructor-arg>
                 </bean>
+                <bean class="org.springframework.data.redis.connection.RedisNode">
+                    <constructor-arg name="host"
+                                     value="${sentinel.ip}"></constructor-arg>
+                    <constructor-arg name="port"
+                                     value="${sentinel.port}"></constructor-arg>
+                </bean>
+
 
 
             </set>
@@ -56,7 +55,6 @@
        <constructor-arg name="sentinelConfig" ref="sentinelConfiguration"></constructor-arg>
         <constructor-arg name="poolConfig" ref="jedisPoolConfig1"/>
     </bean>
-
 
     <bean class="org.springframework.data.redis.core.StringRedisTemplate" id="stringRedisTemplate">
         <property name="connectionFactory" ref="jedisConnectionFactory1"/>
