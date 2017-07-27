@@ -1,6 +1,8 @@
-com\alibaba\dubbo\registry\redis\RedisRegistry$Notifier.class
-com\alibaba\dubbo\registry\redis\RedisRegistry$1.class
-com\liang\service\impl\articleServiceImpl.class
-com\liang\util\JedisUtil.class
-com\alibaba\dubbo\registry\redis\RedisRegistry.class
 com\alibaba\dubbo\registry\redis\RedisRegistry$NotifySub.class
+com\alibaba\dubbo\registry\redis\RedisRegistry$Notifier.class
+com\liang\service\impl\articleServiceImpl.class
+com\liang\service\impl\userServiceImpl.class
+com\alibaba\dubbo\registry\redis\RedisRegistry$1.class
+com\liang\util\JedisUtil.class
+com\liang\util\JedisUtil$1.class
+com\alibaba\dubbo\registry\redis\RedisRegistry.class

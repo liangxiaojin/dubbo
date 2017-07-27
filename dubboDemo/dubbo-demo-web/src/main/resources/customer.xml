@@ -19,5 +19,6 @@
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
     <dubbo:reference id="articleService" interface="com.liang.service.ArticleService" />
 
+    <dubbo:reference id="userService" interface="com.liang.service.Userservice" />
 
 </beans>

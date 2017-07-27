@@ -5,8 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
                         http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context-4.0.xsd"
-       xmlns:p="http://www.springframework.org/schema/p">
+                        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <context:component-scan base-package="com.liang"/>
     <context:property-placeholder location="classpath:redis.properties"/>
     <!--池属性配置-->
@@ -57,6 +56,9 @@
     </bean>
 
     <bean class="org.springframework.data.redis.core.StringRedisTemplate" id="stringRedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory1"/>
+    </bean>
+    <bean class="org.springframework.data.redis.core.RedisTemplate" id="redisTemplate">
         <property name="connectionFactory" ref="jedisConnectionFactory1"/>
     </bean>
 </beans>

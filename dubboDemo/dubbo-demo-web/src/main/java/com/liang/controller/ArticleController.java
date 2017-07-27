@@ -1,6 +1,7 @@
 package com.liang.controller;
 
 import com.liang.service.ArticleService;
+import com.liang.service.Userservice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,13 @@ public class ArticleController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ArticleController.class);
 
     @Autowired
-    private ArticleService articleService;
+    private Userservice userservice;
 
     @RequestMapping(value = "/article")
     String set(Model model){
-        LOGGER.info(" write start ");
-        articleService.set();
-        model.addAttribute("info","success");
+        LOGGER.info(" get start ");
+        String result = userservice.get();
+        model.addAttribute("info",result);
         return "/info";
     }
 }

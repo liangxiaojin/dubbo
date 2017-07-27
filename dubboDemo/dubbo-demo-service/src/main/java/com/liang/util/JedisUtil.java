@@ -1,8 +1,13 @@
 package com.liang.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
+import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +19,8 @@ import java.util.Map;
 public class JedisUtil {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
-
+    @Autowired
+    private RedisTemplate redisTemplate;
     /**
      * 简单的set
      * @param k
@@ -32,7 +38,43 @@ public class JedisUtil {
         return stringRedisTemplate.opsForValue().get(k);
     }
 
+    /**
+     * getSet
+     * @param k
+     * @param v
+     * @return
+     */
+    public String getSet(String k,String v){
+        return stringRedisTemplate.opsForValue().getAndSet(k, v);
+    }
 
+
+    /**
+     * setNx
+     * @param key
+     * @param value
+     * @return
+     */
+    private boolean setNX(final String key, final String value) {
+        Object obj = null;
+        try {
+            obj = redisTemplate.execute(new RedisCallback<Object>() {
+                public Object doInRedis(RedisConnection connection) throws DataAccessException {
+                    StringRedisSerializer serializer = new StringRedisSerializer();
+                    Boolean success = connection.setNX(serializer.serialize(key), serializer.serialize(value));
+                    connection.close();
+                    return success;
+                }
+            });
+        } catch (Exception e) {
+            System.out.println("setNX redis error, key : {}"+ key);
+        }
+        return obj != null ? (Boolean) obj : false;
+    }
+
+    public void delte(String key){
+        stringRedisTemplate.delete(key);
+    }
 
     /**
      * map put操作
